@@ -26,29 +26,20 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
     </title>
     <?= $this->Html->meta('icon') ?>
 
-    <?= $this->Html->css('base.css') ?>
-    <?= $this->Html->css('cake.css') ?>
+    <!-- estas líneas las cambiamos para cargar archivo de bootstrap y los scripts -->
+    <?= $this->Html->css(['bootstrap.min', 'style']) ?>  <!-- creo el fichero style con mis estilos personalizados -->
+   
+    <?= $this->Html->script(['jquery-2.2.4.min', 'bootstrap.min']) ?>
 
     <?= $this->fetch('meta') ?>
     <?= $this->fetch('css') ?>
     <?= $this->fetch('script') ?>
 </head>
 <body>
-    <nav class="top-bar expanded" data-topbar role="navigation">
-        <ul class="title-area large-3 medium-4 columns">
-            <li class="name">
-                <h1><a href=""><?= $this->fetch('title') ?></a></h1>
-            </li>
-        </ul>
-        <div class="top-bar-section">
-            <ul class="right">
-                <li><a target="_blank" href="http://book.cakephp.org/3.0/">Documentation</a></li>
-                <li><a target="_blank" href="http://api.cakephp.org/3.0/">API</a></li>
-            </ul>
-        </div>
-    </nav>
-    <?= $this->Flash->render() ?>
-    <div class="container clearfix">
+    <!-- quitamos esta barra de navegación y vamos a poner la del ejemplo -->
+    <?= $this->element('menu') ?>  <!-- un elemento para separar nuestro código y dentro de element creamos este archivo -->
+    <div class="container">
+        <?= $this->Flash->render() ?>
         <?= $this->fetch('content') ?>
     </div>
     <footer>
